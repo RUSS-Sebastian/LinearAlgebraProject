@@ -220,43 +220,6 @@ function App() {
             <p className="text-xs text-slate-400 mb-4 italic">{dataSource}</p>
           )}
 
-          {/* Manual entry */}
-          <div className="border border-slate-200 rounded-xl p-4 bg-slate-50/40 mb-4">
-            <p className="text-sm font-medium text-slate-600 mb-3 flex items-center gap-1.5">
-              <Plus className="w-4 h-4" />
-              Add a record manually
-            </p>
-            <div className="flex flex-wrap items-end gap-3">
-              <div>
-                <label className="text-xs text-slate-500 block mb-1">Date</label>
-                <input
-                  type="date"
-                  value={manualDate}
-                  onChange={(e) => setManualDate(e.target.value)}
-                  className="px-3 py-2 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-sky-200"
-                />
-              </div>
-              <div>
-                <label className="text-xs text-slate-500 block mb-1">Weather</label>
-                <select
-                  value={manualWeather}
-                  onChange={(e) => setManualWeather(e.target.value as WeatherState)}
-                  className="px-3 py-2 border border-slate-200 rounded-lg text-sm bg-white focus:outline-none focus:ring-2 focus:ring-sky-200"
-                >
-                  {WEATHER_STATES.map((w) => (
-                    <option key={w} value={w}>{w}</option>
-                  ))}
-                </select>
-              </div>
-              <button
-                onClick={handleAddManual}
-                disabled={!manualDate}
-                className="px-4 py-2 bg-slate-700 text-white rounded-lg text-sm font-medium hover:bg-slate-800 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
-              >
-                Add Record
-              </button>
-            </div>
-          </div>
 
           {/* Validation errors */}
           {validation && !validation.valid && validation.errors.length > 0 && (
